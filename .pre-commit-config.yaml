@@ -1,0 +1,91 @@
+# Simplified for solo developer workflow
+
+repos:
+  # Basic file validation and formatting
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Auto-fix file endings
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+
+      # File format validation
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: pretty-format-json
+        args: [--autofix]
+
+      # Basic safety checks
+      - id: check-added-large-files
+        args: ["--maxkb=5000"]
+      - id: check-merge-conflict
+      - id: check-case-conflict
+
+      # Python validation
+      - id: check-ast
+      - id: debug-statements
+
+  # Python formatting and linting with Ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.12.0"
+    hooks:
+      - id: ruff-format
+        types_or: [python, pyi]
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        types_or: [python, pyi]
+  # Dependency management with UV
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.7.13
+    hooks:
+      # Keep lock file updated
+      - id: uv-lock
+        files: ^pyproject\.toml$
+
+      # Auto-export for deployment (optional)
+      - id: uv-export
+        args: ["--frozen", "--output-file=requirements.txt"]
+        files: ^(pyproject\.toml|uv\.lock)$
+
+      # Sync dependencies on branch changes (optional)
+      - id: uv-sync
+        args: ["--locked"]
+  # Database schema validation with SQLFluff
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.2.3
+    hooks:
+      - id: sqlfluff-lint
+        args: [--dialect=sqlite]
+      - id: sqlfluff-fix
+        args: [--dialect=sqlite]
+
+# Configuration - Simplified for solo developer
+default_install_hook_types:
+  - pre-commit
+  - post-checkout
+  - post-merge
+  - post-rewrite
+
+default_stages: [pre-commit]
+fail_fast: false
+
+# Exclude auto-generated and build files
+exclude: |
+  (?x)^(
+    \.venv/.*|
+    \.reports/.*|
+    dist/.*|
+    build/.*|
+    .*\.egg-info/.*|
+    \.vscode/.*|
+    \.idea/.*|
+    \.pytest_cache/.*|
+    __pycache__/.*|
+    .mypy_cache/.*|
+    .ruff_cache/.*|
+    .pytest_cache/.*|
+    .coverage
+    \.src/_version.py|
+  )$
