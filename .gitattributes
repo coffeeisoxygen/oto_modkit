@@ -1,0 +1,105 @@
+# Atur semua file teks supaya line ending auto di repo
+* text=auto
+
+# File python - FORCE LF untuk konsistensi dengan ruff
+*.py text eol=lf
+*.pyi text eol=lf
+
+# Config files - auto juga tapi prefer LF
+*.toml text eol=lf
+*.lock text eol=lf
+*.ini text eol=lf
+*.env text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# ========================================
+# ADDITIONAL TEXT FILES - FORCE LF
+# ========================================
+
+# Documentation and markdown files
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+
+# Script files - critical untuk cross-platform
+*.sh text eol=lf
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Git files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+
+# CI/CD and configuration
+*.json text eol=lf
+*.xml text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+
+# Pre-commit and build files
+.pre-commit-config.yaml text eol=lf
+requirements*.txt text eol=lf
+pyproject.toml text eol=lf
+setup.py text eol=lf
+setup.cfg text eol=lf
+MANIFEST.in text eol=lf
+
+# ========================================
+# BINARY FILES - JANGAN DIUBAH
+# ========================================
+
+# File yang biasanya binary jangan diubah line ending-nya
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bmp binary
+*.svg binary
+*.webp binary
+
+# Executable files
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.app binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.rar binary
+
+# Database files
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# Office documents
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# Other binary formats
+*.pyc binary
+*.pyo binary
+*.pyd binary
+*.whl binary

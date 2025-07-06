@@ -1,0 +1,55 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# cache pytest
+.pytest_cache/
+
+.vscode/settings.json
+*.instructions.md
+*.prompt.md
+*.chatmode.md
+.streamlit/
+*.db
+
+# version generated
+src/_version.py
+
+# report folder and test folder
+.reports/
+
+# catatan selama masa pengembangan
+.notes/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+.ruff_cache/
+.vscode/
+
+*.log
+*.logs
+temp/sample/
+
+*.env
+user_info.json
+
+*.dbml
+*.sqlite
+*.db
+logs/
+data/
+backup/
+.reports/allure/
+.reports/
+./sample/
