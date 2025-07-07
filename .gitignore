@@ -52,4 +52,7 @@ data/
 backup/
 .reports/allure/
 .reports/
-./sample/
+.sample/
+
+# Experimental Python files
+exp_*.py

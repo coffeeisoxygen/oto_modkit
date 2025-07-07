@@ -6,10 +6,17 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 dependencies = [
+    "easyocr>=1.7.2",
     "loguru>=0.7.0",
+    "matplotlib>=3.10.3",
+    "opencv-python>=4.11.0.86",
+    "pillow>=11.3.0",
     "pyodbc>=5.2.0",
+    "pytesseract>=0.3.13",
     "sqlalchemy>=2.0.41",
     "streamlit>=1.46.1",
+    "streamlit-cropperjs>=0.0.9",
+    "ultralytics>=8.3.162",
 ]
 
 [build-system]
